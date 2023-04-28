@@ -501,10 +501,10 @@
 			// Explorer links
 			var blockExplorer = {
 				'address': function(address) {
-					return 'https://blockexplorer.avn.network/address/' + address;
+					return 'https://explorer.avn.network/address/?address=' + address;
 				},
 				'tx': function(tx) {
-					return 'https://blockexplorer.avn.network/tx/' + tx;
+					return 'https://explorer.avn.network/tx/?txid=' + tx;
 				}
 			}
 
@@ -835,9 +835,10 @@
 			// Get address balance
 			function addressBalance(address) {
 				return Promise.resolve($.ajax({
-					'url': 'https://blockexplorer.avn.network/ext/getbalance/' + address,
+					'Acess-Control-Allow-Origin': '*',
+					'url': 'https://explorer.avn.network/api/getbalance/?address=' + address,
 				})).then(function(data) {
-					return data
+					return data.balance
 				})
 			}
 
