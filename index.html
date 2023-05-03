@@ -836,9 +836,9 @@
 			function addressBalance(address) {
 				return Promise.resolve($.ajax({
 					'Acess-Control-Allow-Origin': 'https://wallet.avn.network/',
-					'url': 'https://explorer.avn.network/api/getbalance/?address=' + address,
+					'url': 'https://api.avn.network/balance/' + address,
 				})).then(function(data) {
-					return data.balance
+					return data.result.balance/100000000
 				})
 			}
 
